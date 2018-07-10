@@ -66,7 +66,7 @@ class LiveFFTWidget(QtWidgets.QWidget):
 
         # mpl figure
         self.main_figure = MplFigure(self)
-        #vbox.addWidget(self.main_figure.toolbar)
+        vbox.addWidget(self.main_figure.toolbar)
         vbox.addWidget(self.main_figure.canvas)
 
         self.setLayout(vbox)
@@ -77,7 +77,6 @@ class LiveFFTWidget(QtWidgets.QWidget):
         # timer for callbacks, taken from:
         # http://ralsina.me/weblog/posts/BB974.html
         timer = QtCore.QTimer()
-        #timer.connectNotify(self.handleNewData)
         timer.timeout.connect(self.handleNewData)
         timer.start(100)
         # keep reference to timer
